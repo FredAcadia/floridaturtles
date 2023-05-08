@@ -25,11 +25,24 @@ allturtles.nesting.year <- allturtles.nesting.data$Year
 allturtles.nesting.year.n <- allturtles.nesting.year - 2018
 allturtles.nesting.count <- allturtles.nesting.data$Count
 
+#Summary statistics
+summary(greenturtle.nesting.data)
+summary(loggerhead.nesting.data)
+summary(leatherback.nesting.data)
+summary(allturtles.nesting.data)
+
+#bar plot all turtles
+barplot(allturtles.nesting.count, names.arg = allturtles.nesting.year,
+        xlab = "Year", ylab = "Count", main = "All turtles Data")
+
 #Models
 greenturtle_model <- glm(greenturtle.nesting.count~greenturtle.nesting.year.n, family = poisson)
 loggerhead_model <- glm(loggerhead.nesting.count~loggerhead.nesting.year.n, family = poisson)
 leatherback_model <- glm(leatherback.nesting.count~leatherback.nesting.year.n, family = poisson)
 allturtles_model <- glm(allturtles.nesting.count~allturtles.nesting.year.n, family = poisson)
+
+#model-based inferences
+allturtles_model
 
 #Plots
 par(mfrow=c(2,2))
