@@ -43,6 +43,7 @@ allturtles_model <- glm(allturtles.nesting.count~allturtles.nesting.year.n, fami
 
 #model-based inferences
 allturtles_model
+summary(allturtles_model)
 
 #Plots
 par(mfrow=c(2,2))
@@ -54,9 +55,3 @@ plot(leatherback.nesting.year,leatherback.nesting.count, xlab="Year",ylab="Count
 lines(leatherback.nesting.year, fitted(leatherback_model))
 plot(allturtles.nesting.year, allturtles.nesting.count, xlab="Year",ylab="Count",pch=16,cex.lab=1.5,cex.axis=1, main="All turtles nesting count per year" )
 lines(allturtles.nesting.year, fitted(allturtles_model))
-
-#Display the results of the parameter estimates and associated statistics
-summary(greenturtle_model)
-summary(loggerhead_model)
-summary(leatherback_model)
-summary((allturtles_model))
